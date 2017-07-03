@@ -121,6 +121,14 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         Intent intentToStartDetailActivity = new Intent(context, destinationClass);
         // TODO (1) Pass the weather to the DetailActivity
         startActivity(intentToStartDetailActivity);
+        /**
+         * These are the current standard fields that can be used as extra data via putExtra(String, Bundle).
+         * https://developer.android.com/reference/android/content/Intent.html
+         * **/
+
+        // COMPLETED (1) Pass the weather to the DetailActivity
+        intentToStartDetailActivity.putExtra(Intent.EXTRA_TEXT, weatherForDay);
+        startActivity(intentToStartDetailActivity);
     }
 
     /**

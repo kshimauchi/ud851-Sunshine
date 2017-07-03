@@ -261,7 +261,6 @@ public class MainActivity extends AppCompatActivity implements
      * Android's developer site:
      *
      * @see "http://developer.android.com/guide/components/intents-common.html#Maps"
-     * <p>
      * Protip: Hold Command on Mac or Control on Windows and click that link to automagically
      * open the Common Intents page
      */
@@ -296,7 +295,6 @@ public class MainActivity extends AppCompatActivity implements
     /**
      * This method will make the View for the weather data visible and
      * hide the error message.
-     * <p>
      * Since it is okay to redundantly set the visibility of a View, we don't
      * need to check whether each view is currently visible or invisible.
      */
@@ -306,11 +304,9 @@ public class MainActivity extends AppCompatActivity implements
         /* Then, make sure the weather data is visible */
         mRecyclerView.setVisibility(View.VISIBLE);
     }
-
     /**
      * This method will make the error message visible and hide the weather
      * View.
-     * <p>
      * Since it is okay to redundantly set the visibility of a View, we don't
      * need to check whether each view is currently visible or invisible.
      */
@@ -320,7 +316,6 @@ public class MainActivity extends AppCompatActivity implements
         /* Then, show the error */
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         /* Use AppCompatActivity's method getMenuInflater to get a handle on the menu inflater */
@@ -330,7 +325,6 @@ public class MainActivity extends AppCompatActivity implements
         /* Return true so that the menu is displayed in the Toolbar */
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -340,19 +334,16 @@ public class MainActivity extends AppCompatActivity implements
             getSupportLoaderManager().restartLoader(FORECAST_LOADER_ID, null, this);
             return true;
         }
-
         if (id == R.id.action_map) {
             openLocationInMap();
             return true;
         }
-
         // COMPLETED (6) Launch SettingsActivity when the Settings option is clicked
         if (id == R.id.action_settings) {
             Intent startSettingsActivity = new Intent(this, SettingsActivity.class);
             startActivity(startSettingsActivity);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

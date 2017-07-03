@@ -11,7 +11,6 @@ import android.widget.TextView;
 public class DetailActivity extends AppCompatActivity {
 
     private static final String FORECAST_SHARE_HASHTAG = " #SunshineApp";
-
     private String mForecast;
     private TextView mWeatherDisplay;
 
@@ -19,11 +18,9 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
         mWeatherDisplay = (TextView) findViewById(R.id.tv_display_weather);
 
         Intent intentThatStartedThisActivity = getIntent();
-
         if (intentThatStartedThisActivity != null) {
             if (intentThatStartedThisActivity.hasExtra(Intent.EXTRA_TEXT)) {
                 mForecast = intentThatStartedThisActivity.getStringExtra(Intent.EXTRA_TEXT);
@@ -31,14 +28,6 @@ public class DetailActivity extends AppCompatActivity {
             }
         }
     }
-
-    /**
-     * Uses the ShareCompat Intent builder to create our Forecast intent for sharing. We set the
-     * type of content that we are sharing (just regular text), the text itself, and we return the
-     * newly created Intent.
-     *
-     * @return The Intent to use to start our share.
-     */
     private Intent createShareForecastIntent() {
         Intent shareIntent = ShareCompat.IntentBuilder.from(this)
                 .setType("text/plain")
@@ -46,7 +35,6 @@ public class DetailActivity extends AppCompatActivity {
                 .getIntent();
         return shareIntent;
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detail, menu);
@@ -54,6 +42,15 @@ public class DetailActivity extends AppCompatActivity {
         menuItem.setIntent(createShareForecastIntent());
         return true;
     }
-
-    // TODO (7) Launch SettingsActivity when the Settings option is clicked
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        // TODO (7) Launch SettingsActivity when the Settings option is clicked
+        if (id == R.id.action_settings) {
+            Intent startSettingsActivity = new Intent(this, SettingsActivity.class);
+            startActivity(startSettingsActivity);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

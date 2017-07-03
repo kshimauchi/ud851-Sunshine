@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class DetailActivity extends AppCompatActivity {
 
     private static final String FORECAST_SHARE_HASHTAG = " #SunshineApp";
-
+    private String TAG = "DetailActivity";
     private String mForecast;
     private TextView mWeatherDisplay;
 

@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2016 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.example.android.sunshine;
 
 import android.content.Context;
@@ -45,14 +30,10 @@ public class MainActivity extends AppCompatActivity implements
         LoaderCallbacks<String[]> {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-
     private RecyclerView mRecyclerView;
     private ForecastAdapter mForecastAdapter;
-
     private TextView mErrorMessageDisplay;
-
     private ProgressBar mLoadingIndicator;
-
     private static final int FORECAST_LOADER_ID = 0;
 
     @Override
@@ -152,8 +133,7 @@ public class MainActivity extends AppCompatActivity implements
             String[] mWeatherData = null;
 
             // COMPLETED (3) Cache the weather data in a member variable and deliver it in onStartLoading.
-            /**
-             * Subclasses of AsyncTaskLoader must implement this to take care of loading their data.
+            /**        * Subclasses of AsyncTaskLoader must implement this to take care of loading their data.
              */
             @Override
             protected void onStartLoading() {
@@ -341,7 +321,6 @@ public class MainActivity extends AppCompatActivity implements
             openLocationInMap();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
